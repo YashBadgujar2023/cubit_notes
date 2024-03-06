@@ -17,7 +17,6 @@ class dbhelper{
   static const columnid = "Notes_id";
   static const columntitle = "Notes_title";
   static const columndescription = "Notes_desdcription";
-  static const columnbookmark = "Notes_bookmark";
 
   Future<Database> getdb()async{
     if(_database != null) {
@@ -34,7 +33,7 @@ class dbhelper{
     var path = join(directory.path + "Notes.db");
     return await openDatabase(path,version: 1,onCreate: (db,version){
       db.execute(
-        "create table $table($columnid integer primary key autoincrement,$columntitle text,$columndescription text,$columnbookmark integer)"
+        "create table $table($columnid integer primary key autoincrement,$columntitle text,$columndescription text)"
       );
     });
   }

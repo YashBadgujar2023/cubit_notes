@@ -25,17 +25,17 @@ class _gridState extends State<grid> {
         builder: (context,state){
       if(state is notesloading){
         return const Center(
-          child: CircularProgressIndicator(),
+          child: Center(child: Text("yash it in loading state")),
         );
       }
-      else if (state is notesloading)
+      else if (state is notesloaded)
         {
           return GridView.count(
             shrinkWrap: true,
             crossAxisCount: 2,
             childAspectRatio: 3/4,
             physics: const NeverScrollableScrollPhysics(),
-            children: List.generate(5, (index){
+            children: List.generate(state.arrnotes!.length, (index){
               return GestureDetector(
                 onTap: () {
                   PageRouteTransition.effect = TransitionEffect.rightToLeft;
@@ -45,6 +45,7 @@ class _gridState extends State<grid> {
                   showModalBottomSheet(context: context, builder: (context){
                     return ElevatedButton(
                         onPressed: ()async{
+                          context.read<notescubit>().delete(state.arrnotes![index].id!);
                           Navigator.pop(context);
                         },
                         child:const Row(
@@ -70,7 +71,7 @@ class _gridState extends State<grid> {
                       children: [
                         Container(
                           constraints: BoxConstraints(maxHeight: 125),
-                          child: Text("hiii",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),overflow: TextOverflow.clip,),
+                          child: Text(state.arrnotes![index].title,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),overflow: TextOverflow.clip,),
                         ),
                         Divider(
                           thickness: 1,
@@ -80,7 +81,7 @@ class _gridState extends State<grid> {
                         Expanded(
                           child: Container(
                             constraints: BoxConstraints(maxHeight: 85),
-                            child: Text("Iam study in bes college ",overflow: TextOverflow.clip,),
+                            child: Text(state.arrnotes![index].description,overflow: TextOverflow.clip,),
                           ),
                         ),
                       ],

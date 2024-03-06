@@ -4,7 +4,6 @@ import 'package:cubit_notes/cubit/notes_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_route_transition/page_route_transition.dart';
-import 'package:provider/provider.dart';
 
 import '../Uihelper/uihelper.dart';
 import 'account.dart';
@@ -31,7 +30,7 @@ class _homescreenState extends State<homescreen> {
                   PageRouteTransition.effect = TransitionEffect.fade;
                   PageRouteTransition.push(context, const account());
                 },
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 20,
                   backgroundColor: Colors.white,
                   backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW4AdHQ5lVM_cFZYu4TogVtmEfYH4iHSGwYQ&usqp=CAU"),
@@ -39,9 +38,9 @@ class _homescreenState extends State<homescreen> {
               ),
             ),
             title: Uihelper.customtext(text: "Yash",color: Colors.white,fontWeight: FontWeight.bold,fontsize: 25),
-            actions: [
+            actions: const [
               Padding(
-                padding: const EdgeInsets.only(right: 15),
+                padding: EdgeInsets.only(right: 15),
                 child: Icon(Icons.settings,size: 35,color: Colors.white,),
               ),
             ],
@@ -52,45 +51,10 @@ class _homescreenState extends State<homescreen> {
             child: ListView(
               children: [
                 Uihelper.customtext(text: "My Notes",fontsize: 55,fontWeight: FontWeight.w900,color: Colors.white),
-                /*SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 4,
-                      ),
-                      for (int i = 0; i < state.; i++)
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              decoration: BoxDecoration(
-                                  color: Colors.orange,
-                                  border: Border.all(color: Colors.white70),
-                                  borderRadius: BorderRadius.circular(30)),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 15, right: 15, top: 8, bottom: 8),
-                                child: Text(
-                                  "hiii",
-                                  style: TextStyle(
-                                      color: Colors.white38,
-                                      fontSize: 22),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),*/
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                grid(),
+                const grid(),
               ],
             ),
           ),

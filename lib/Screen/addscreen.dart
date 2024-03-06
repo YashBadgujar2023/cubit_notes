@@ -57,25 +57,6 @@ class _addscreenState extends State<addscreen> {
                                 )),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: GestureDetector(
-                            onTap: () {
-                              log("change the color");
-                            },
-                            child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                                  color: Colors.white12,
-                                ),
-                                child: Icon(
-                                  Icons.bookmark_add_outlined,
-                                  size: 35,
-                                  color: Colors.white38,
-                                )),
-                          ),
-                        ),
                       ],
                     ),
                     SizedBox(height: 10,),
@@ -101,15 +82,7 @@ class _addscreenState extends State<addscreen> {
                   );
                 }
                 else {
-                  int i;
-                  if ( 0 == 1) {
-                    i = 1;
-                  }
-                  else {
-                    i = 0;
-                  }
-                  log(i.toString());
-                  context.read<notescubit>().addnotes(Notesmodel(title: title.text.toString(), description: desc.text.toString(),bookmark: i));
+                  context.read<notescubit>().addnotes(Notesmodel(title: title.text.toString(), description: desc.text.toString()));
                   Navigator.pop(context);
                 }
               },

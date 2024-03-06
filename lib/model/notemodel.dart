@@ -7,16 +7,14 @@ class Notesmodel{
   int? id;
   String title;
   String description;
-  int? bookmark;
 
-  Notesmodel({this.id,required this.title,required this.description,this.bookmark});
+  Notesmodel({this.id,required this.title,required this.description});
 
   factory Notesmodel.fromMap(Map<String,dynamic> map){
     return Notesmodel(
         id: map[dbhelper.columnid],
         title:map[dbhelper.columntitle],
         description: map[dbhelper.columndescription],
-      bookmark: map[dbhelper.columnbookmark]
     );
   }
 
@@ -25,7 +23,6 @@ class Notesmodel{
       dbhelper.columnid:id,
       dbhelper.columntitle:title,
       dbhelper.columndescription:description,
-      dbhelper.columnbookmark:bookmark,
     };
   }
 }
